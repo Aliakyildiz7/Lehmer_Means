@@ -1,3 +1,10 @@
+"""
+In the first version, there was a bug such that when you enter two non_positive values consecutively,
+the program added it into the list,
+instead of prompting "All the numbers in the series must be greater than zero. \nPlease enter a number greater  than zero."
+
+"""
+
 
 from Lehmer_Means import lehmer_mean
 
@@ -11,10 +18,17 @@ def get_float_input(prompt: str):
             return get_float_input("Please enter a valid number")
 
 
-def get_float_greater_than_zero(x):
+def get_float_greater_than_zero(prompt: str):
+
+    x = get_float_input(prompt)
+
+
 
     if x <= 0:
-        return get_float_input("All the numbers in the series must be greater than zero. \nPlease enter a number greater  than zero.")
+
+        return get_float_greater_than_zero("All the numbers in the series must be greater than zero. \nPlease enter a number greater  than zero.")
+
+
     return x
 
 
@@ -43,7 +57,7 @@ def main():
     i = 1
     while True:
 
-        k = get_float_greater_than_zero(get_float_input(f"\nPlease enter the {i}. number to add to the series."))
+        k = get_float_greater_than_zero(f"\nPlease enter the {i}. number to add to the series.")
 
         if k.is_integer():
             liste.append(int(k))
@@ -71,4 +85,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
