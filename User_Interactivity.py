@@ -22,12 +22,9 @@ def get_float_greater_than_zero(prompt: str):
 
     x = get_float_input(prompt)
 
-
-
     if x <= 0:
 
         return get_float_greater_than_zero("All the numbers in the series must be greater than zero. \nPlease enter a number greater  than zero.")
-
 
     return x
 
